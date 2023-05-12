@@ -1,0 +1,59 @@
+# Aliases
+alias ls='exa'
+alias ll='exa -l'
+alias la='exa -la'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias grep='grep --color=auto'
+alias so='source'
+alias c='clear'
+alias nf='clear; neofetch --disable GPU;'
+alias pacman='sudo pacman -Syu'
+alias apt='sudo apt update && sudo apt upgrade -y'
+alias clock='tty-clock -f "%d-%m-%Y"'
+alias p1="PROMPT='%B%{$fg[red]%}[%F{214}%n%F{003}@%F{214}%M %{$fg[green]%}%1~%{$fg[red]%}]%{$reset_color%}%b%F{015}${vcs_info_msg_0_}$ '"
+alias p2="PROMPT='%{$fg[green]%}%B[%1~]${vcs_info_msg_0_}>%{$reset_color%} '"
+alias p3="PROMPT='%{$fg[green]%}${vcs_info_msg_0_}>%{$reset_color%} '"
+alias i3conf='vi ~/.config/i3/config'
+#alias cal="ncal -M -b"
+alias cal='gcal --starting-day=1'
+alias q='qview'
+alias clock='tty-clock -f "%d-%M-%Y" -sc -C 3'
+alias cpv='rsync -ah --info=progress2'
+alias zconf='vi ~/.config/zsh/.zshrc'
+alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
+alias otm='org-to-md'
+alias tw='attach-tmux-session'
+
+alias fish='asciiquarium'
+alias oo='xdg-open'
+alias vi='nvim'
+alias z='zathura' # pdf viewer
+#alias ff='firefox' # Linux
+alias ff='open -a /Applications/Firefox.app' # MacOs
+alias pp='~/.config/polybar/launch.sh' # Kill and run polybar
+alias go='grc go' # Adds colors to go tests
+alias td='tmux-dev' # Script to start a custom tmux session
+alias cw='change-wallpaper.sh' # Script to change to a random wallpaper on screen 0 and 1
+alias sz='so $HOME/.zshrc' # Source zshrc file
+alias py='python3'
+alias pip='pip3'
+
+# GIT 
+# git repo with dotfiles scattered all over. No longer in use..
+#alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias gitlog='git log --all --graph --pretty=format:"%Cred%h%Creset %C(bold blue)%an%Creset :%C(yellow)%d%Creset %s %Cgreen(%cr) %Creset" --abbrev-commit'
+alias gcor='git branch --sort=-committerdate | fzf --header "Checkout Recent Branch" --preview "git diff {1} --color=always | delta" --pointer="" | xargs git checkout'
+alias gco='git branch -r --sort=-committerdate | cut -d'/' -f2- | fzf --header "Checkout Recent Branch" --preview "git diff {1} --color=always | delta" --pointer="" | xargs git checkout'
+
+# Searches for second argument on google
+#alias \?='{read -r arg; ff "https://google.com/search?q=${arg}" & disown;} <<<'
+alias \?='search-google'
+alias yt='{read -r arg; ff "https://www.youtube.com/results?search_query=${arg}" & disown;} <<<'
+
+# temp shortcuts
+alias fixExtScr='xrandr --output DP-2 --mode 3440x1440 --left-of eDP-1 --auto'
+alias b1='brightnessctl set 1%; clear;'
+alias b2='brightnessctl set 55%; clear;'
