@@ -2,8 +2,10 @@
 
 use strict;
 use warnings;
+use File::Basename;
 
-my $usage = "Usage: $0 [--option]\n\t ex. $0 --list\n";
+my $script_name = basename($0);
+my $usage = "dotfiles version 0.2\nA perl script placing symlinks of dotfiles in their respective .config/ directories.\n\nUsage: $script_name [OPTION]\n\nOptions:\n\t-l --list:\t Lists existing symlinks\n\t-s --sync:\t Syncs dotfiles, creating symlinks in .config/\n";
 if (@ARGV != 1) {
 	print $usage;
 	exit 1;
@@ -17,6 +19,8 @@ my $config_dir = "$home_dir/.config";
 my %dotfiles_hash = (
 	zshrc => "zsh/.zshrc",
 	zsh_aliases => "zsh/.zsh_aliases",
+	zsh_git => "zsh/.zsh_git",
+	fzf_zsh => "zsh/.fzf.zsh",
 );
 
 if ($flag eq '--list' || $flag eq '-l') {
@@ -38,9 +42,7 @@ if ($flag eq '--list' || $flag eq '-l') {
 		my $app = substr($value, 0, index($value, '/'));
 		my $app_dir = "$config_dir/$app";
 
-		if (!-d $app_dir) {
-			print "The directory '$app' does not exist in '$config_dir'\n";
-		} elsif (-l $symlink) {
+		if (-l $symlink) {
 			print "The symlink for '$key' already exist\n";
 		} elsif (-e $symlink) {
 			print "A file named '$value' already exist\n";
@@ -48,6 +50,12 @@ if ($flag eq '--list' || $flag eq '-l') {
 			unless (-e $dotfile) {
 				print "The file '$dotfile' does not exist in the current directory\n";
 				exit 1;
+			}
+
+			if (!-d $app_dir) {
+				print "The directory '$app' does not exist in '$config_dir'\n";
+				print "Creating directory '$app/'\n";
+				mkdir "$config_dir/$app" or die "Error creating directory $config_dir/$app: $!";
 			}
 			symlink($dotfile, $symlink) or die "Failed to create symlink: $!\n";
 			print "Symlink for $key created successfully at $symlink\n";
@@ -64,6 +72,7 @@ if ($flag eq '--list' || $flag eq '-l') {
 		symlink("$dotfiles_dir/.zshrc", $localZshrc);
 		print "Symlink for $localZshrc created successfully\n";
 	}
+
 	print "\n========================\n";
 	print "Dotfile sync completed.\n";
 	print "========================\n";
