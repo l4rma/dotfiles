@@ -20,7 +20,7 @@ my %dotfiles_hash = (
 );
 
 if ($flag eq '--list' || $flag eq '-l') {
-	print "Symlinks:\n";
+	print "Existing symlinks:\n";
 	while (my ($key, $value) = each(%dotfiles_hash)) {
 		my $symlink = "$config_dir/$value";
 
@@ -31,6 +31,7 @@ if ($flag eq '--list' || $flag eq '-l') {
 		}
 	}
 } elsif ($flag eq '--sync' || $flag eq '-s') {
+	# Creating symlinks in '.config/' for all the dotfiles
 	while (my ($key, $value) = each(%dotfiles_hash)) {
 		my $dotfile = "$dotfiles_dir/$value";
 		my $symlink = "$config_dir/$value";
@@ -52,8 +53,23 @@ if ($flag eq '--list' || $flag eq '-l') {
 			print "Symlink for $key created successfully at $symlink\n";
 		}
 	}
+
+	# If created symlink for .zshrc in .config/zsh. Create file for sourcing it.
+	my $localZshrc =  "$home_dir/.zshrc";
+	if (-l "$config_dir/zsh/.zshrc" && !-l $localZshrc) {
+		if (-e $localZshrc) {
+			print "\n$localZshrc exists. Backing up and recreating.\n";
+			rename($localZshrc, "$home_dir/.zshrc.bak");
+		}
+		symlink("$dotfiles_dir/.zshrc", $localZshrc);
+		print "Symlink for $localZshrc created successfully\n";
+	}
+	print "\n========================\n";
+	print "Dotfile sync completed.\n";
+	print "========================\n";
 } else {
 	print $usage;
 }
+
 
 
