@@ -6,7 +6,8 @@ and a script to place them in $HOME/.config/
 run `./dotfile -s` to add all the dotfiles included.
 
 ## Dotfiles Script
-```shell 
+
+```
 dotfiles version 0.2
 A perl script placing symlinks of dotfiles in their respective .config/ directories.
 
