@@ -34,14 +34,18 @@ if ($flag eq '--list' || $flag eq '-l') {
 	while (my ($key, $value) = each(%dotfiles_hash)) {
 		my $dotfile = "$dotfiles_dir/$value";
 		my $symlink = "$config_dir/$value";
+		my $app = substr($value, 0, index($value, '/'));
+		my $app_dir = "$config_dir/$app";
 
-		if (-l $symlink) {
-			print "The symlink for $key already exists\n";
+		if (!-d $app_dir) {
+			print "The directory '$app' does not exist in '$config_dir'\n";
+		} elsif (-l $symlink) {
+			print "The symlink for '$key' already exist\n";
 		} elsif (-e $symlink) {
-			print "A file named $value already exists\n";
+			print "A file named '$value' already exist\n";
 		} else {
 			unless (-e $dotfile) {
-				print "The file 'myfile' does not exist in the current directory\n";
+				print "The file '$dotfile' does not exist in the current directory\n";
 				exit 1;
 			}
 			symlink($dotfile, $symlink) or die "Failed to create symlink: $!\n";
