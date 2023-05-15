@@ -21,6 +21,9 @@ my %dotfiles_hash = (
 	zsh_aliases => "zsh/.zsh_aliases",
 	zsh_git => "zsh/.zsh_git",
 	fzf_zsh => "zsh/.fzf.zsh",
+	tmux => "tmux/tmux.conf",
+	skhd => "skhd/skhdrc",
+	yabai => "yabai/yabairc",
 );
 
 if ($flag eq '--list' || $flag eq '-l') {
