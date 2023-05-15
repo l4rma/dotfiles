@@ -14,8 +14,8 @@ A perl script placing symlinks of dotfiles in their respective .config/ director
 Usage: dotfiles [OPTION]
 
 Options:
-        -l --list:       Lists existing symlinks
-        -s --sync:       Syncs dotfiles, creating symlinks in .config/
+        -l, --list:      Lists existing symlinks
+        -s, --sync:      Syncs dotfiles, creating symlinks in .config/
 ```
 
 
