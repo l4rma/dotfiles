@@ -5,7 +5,7 @@ use warnings;
 use File::Basename;
 
 my $script_name = basename($0);
-my $usage = "dotfiles version 0.2\nA perl script placing symlinks of dotfiles in their respective .config/ directories.\n\nUsage: $script_name [OPTION]\n\nOptions:\n\t-l --list:\t Lists existing symlinks\n\t-s --sync:\t Syncs dotfiles, creating symlinks in .config/\n";
+my $usage = "dotfiles version 0.2\nA perl script placing symlinks of dotfiles in their respective .config/ directories.\n\nUsage: $script_name [OPTION]\n\nOptions:\n\t-l, --list:\t Lists existing symlinks\n\t-s, --sync:\t Syncs dotfiles, creating symlinks in .config/\n";
 if (@ARGV != 1) {
 	print $usage;
 	exit 1;
