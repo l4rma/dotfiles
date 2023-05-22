@@ -4,10 +4,10 @@ use strict;
 use warnings;
 use File::Basename;
 
-my $script_name = basename($0);
-my $usage = "dotfiles version 0.3\nA perl script placing symlinks of dotfiles in their respective .config/ directories.\n\nUsage: $script_name [OPTION]\n\nOptions:\n\t-l, --list:\t Lists existing symlinks\n\t-s, --sync-all:\t Syncs dotfiles, creating symlinks in .config/\n";
+my $version = "0.4";
+
 if (@ARGV < 1 || @ARGV > 2) {
-	print $usage;
+	printUsage();
 	exit 1;
 }
 
@@ -29,69 +29,61 @@ my %dotfiles_hash = (
 );
 
 # List symlinks
-# -l, --list
-if ($flag eq '--list' || $flag eq '-l') {
+if ($flag eq '--version' || $flag eq '-v') {
+	print "Dotfiles version $version\n";
+	exit 0;
+} elsif ($flag eq '--help' || $flag eq '-h') {
+	printUsage();
+	exit 0;
+} elsif ($flag eq '--list' || $flag eq '-l') {
+	# -l, --list
 	if (@ARGV > 0) {
-		print $usage;
+		printUsage();
 		exit 1;
 	}
-	print "Existing symlinks:\n";
-	while (my ($key, $value) = each(%dotfiles_hash)) {
-		my $symlink = "$config_dir/$value";
+	printSymlinks();
 
-		if (-l $symlink) {
-			print "[x] $key\n";
-		} else {
-			print "[ ] $key\n";
-		}
-	}
 # Creat symlinks
 } elsif ($flag eq '--sync' || $flag eq '-s') {
-	# -s, --sync, --sync-all
-	if (@ARGV < 1) {
+	
+	# -s, --sync
+		printSymlinks();
 		while (my ($key, $value) = each(%dotfiles_hash)) {
 			my $dotfile = "$dotfiles_dir/$value";
 			my $symlink = "$config_dir/$value";
 			my $app = substr($value, 0, index($value, '/'));
 			my $app_dir = "$config_dir/$app";
 
-			if (-l $symlink) {
-				print "The symlink for '$key' already exist\n";
-			} elsif (-e $symlink) {
-				print "A file named '$value' already exist\n";
-			} else {
-				unless (-e $dotfile) {
-					print "The file '$dotfile' does not exist in the current directory\n";
-					exit 1;
-				}
+			my $hasChosen = 0;
 
-				if (!-d $app_dir) {
-					print "The directory '$app' does not exist in '$config_dir'\n";
-					print "Creating directory '$app/'\n";
-					mkdir "$config_dir/$app" or die "Error creating directory $config_dir/$app: $!";
+			while (!$hasChosen && !-e $symlink) {
+				print "Sync $key? Y/n: ";
+				chomp(my $user_input = <>);
+
+				if ($user_input eq 'y' || $user_input eq 'Y' || $user_input eq '') {
+					if (!-e $dotfile) {
+						print "The file '$dotfile' does not exist in the current directory\n";
+					} elsif (-e $symlink) {
+						print "A file named '$value' already exist\n";
+					} else {
+						createSymlink($app_dir, $app, $config_dir, $dotfile, $symlink, $key);
+					}
+					$hasChosen = 1;
+				} elsif ($user_input eq 'n' || $user_input eq 'N') {
+					$hasChosen = 1;
+				} else {
+					print "Please enter: y or n\n";
 				}
-				symlink($dotfile, $symlink) or die "Failed to create symlink '$symlink': $!\n";
-				print "Symlink for $key created successfully at $symlink\n";
 			}
 		}
 
 		# If created symlink for .zshrc in .config/zsh. Create file for sourcing it.
-		my $localZshrc =  "$home_dir/.zshrc";
-		if (-l "$config_dir/zsh/.zshrc" && !-l $localZshrc) {
-			if (-e $localZshrc) {
-				print "\n$localZshrc exists. Backing up and recreating.\n";
-				rename($localZshrc, "$home_dir/.zshrc.bak");
-			}
-			symlink("$dotfiles_dir/.zshrc", $localZshrc);
-			print "Symlink for $localZshrc created successfully\n";
-		}
+		createZshrcSourcingFile();
 
-		print "\n========================\n";
+		print "\n";
 		print "Dotfile sync completed.\n";
-		print "========================\n";
 
-	# -s <file>, --sync <file>
-	} elsif (@ARGV == 1) {
+} elsif ($flag eq '--file' || $flag eq '-f') {
 		my $arg = shift;
 		unless (exists $dotfiles_hash{$arg}) {
 			print "The file '$arg' does not exist in the current directory\n";
@@ -103,17 +95,62 @@ if ($flag eq '--list' || $flag eq '-l') {
 		my $app = substr($selected_dotfile, 0, index($selected_dotfile, '/'));
 		my $app_dir = "$config_dir/$app";
 
-		if (!-d $app_dir) {
-			print "The directory '$app' does not exist in '$config_dir'\n";
-			print "Creating directory '$app/'\n";
-			mkdir "$config_dir/$app" or die "Error creating directory $config_dir/$app: $!";
-		}
-		symlink($dotfile, $symlink) or die "Failed to create symlink '$symlink': $!\n";
-		print "Symlink for $arg created successfully at $symlink\n";
-	} 
+		createSymlink($app_dir, $app, $config_dir, $dotfile, $symlink, $arg);
+
+		# If created symlink for .zshrc in .config/zsh. Create file for sourcing it.
+		createZshrcSourcingFile();
 } else {
-	print $usage;
+	printUsage();
+	exit 1;
 }
 
+sub printUsage {
+	my $script_name = basename($0);
 
+	print "Dotfiles version $version\n";
+	print "A perl script placing symlinks of dotfiles in their respective .config/ directories.\n\n";
+	print "Usage: $script_name [OPTION]\n\n";
+	print "Options:\n";
+	print "\t-l, --list:\t Lists existing symlinks\n";
+	print "\t-s, --sync:\t Syncs dotfiles, creating symlinks in .config/\n";
+	print "\t-f file:\t Create symlink for file\n";
+	print "\t-h, --help:\t Print this message\n";
+	print "\t-v, --version:\t Print version\n";
+}
 
+sub printSymlinks {
+	print "Existing symlinks:\n";
+	while (my ($key, $value) = each(%dotfiles_hash)) {
+		my $symlink = "$config_dir/$value";
+
+		if (-l $symlink) {
+			print "[x] $key\n";
+		} else {
+			print "[ ] $key\n";
+		}
+	}
+}
+
+sub createSymlink {
+	my ($app_dir, $app, $config_dir, $dotfile, $symlink, $key) = @_;
+	
+	if (!-d $app_dir) {
+		print "The directory '$app' does not exist in '$config_dir'\n";
+		print "Creating directory '$app/'\n";
+		mkdir "$config_dir/$app" or die "Error creating directory $config_dir/$app: $!";
+	}
+	symlink($dotfile, $symlink) or die "Failed to create symlink '$symlink': $!\n";
+	print "Symlink for $key created successfully at $symlink\n";
+}
+
+sub createZshrcSourcingFile {
+	my $localZshrc = "$home_dir/.zshrc"; 
+	if (-l "$config_dir/zsh/.zshrc" && !-l $localZshrc) {
+		if (-e $localZshrc) {
+			print "\n$localZshrc exists. Backing up and recreating.\n";
+			rename($localZshrc, "$home_dir/.zshrc.bak");
+		}
+		symlink("$dotfiles_dir/.zshrc", $localZshrc);
+		print "Symlink for $localZshrc created successfully\n";
+	}
+}
