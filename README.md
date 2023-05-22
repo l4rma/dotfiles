@@ -1,5 +1,5 @@
 # Dotfiles
-My dotfiles  
+My dotfiles for personal use
 and a script to place them in $HOME/.config/
 
 ## How to use
