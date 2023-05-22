@@ -24,8 +24,10 @@ my %dotfiles_hash = (
 	tmux => "tmux/tmux.conf",
 	skhd => "skhd/skhdrc",
 	yabai => "yabai/yabairc",
-	#i3 => "i3/config",
-	#test => "test-dir/.testconf",
+	alacritty => "alacritty/alacritty.yml",
+	picom => "picom/picom.conf",
+	i3 => "i3/config",
+	test => "test-dir/test.conf",
 );
 
 # List symlinks
