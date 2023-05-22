@@ -1,9 +1,17 @@
-# dotfiles
+# Dotfiles
 My dotfiles  
 and a script to place them in $HOME/.config/
 
-### tl;dr
-run `./dotfile -s` to add all the dotfiles included.
+## How to use
+Clone the repository and run the script
+
+```shell
+# Clone repo
+git clone https://github.com/l4rma/dotfiles.git
+
+# Run script to sync all dotfiles included
+./dotfiles/bin/dotfiles -s
+```
 
 ## Dotfiles Script
 
