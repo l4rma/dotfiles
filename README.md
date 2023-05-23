@@ -33,6 +33,8 @@ Options:
 To be able to use the script from anywhere add bin to path.  
 In .zshrc or .bashrc (or other) add: ``$PATH=$PATH:$HOME/dotfiles/bin`` or create a symlink of the binary somewhere like "/usr/local/bin".
 
-
-
-
+## Dependencies
+**i3**: 
+* bumblebee-status [(github)](https://github.com/tobi-wan-kenobi/bumblebee-status)  
+**zsh**: 
+* Fzf (any package manager)
