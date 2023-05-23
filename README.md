@@ -36,5 +36,6 @@ In .zshrc or .bashrc (or other) add: ``$PATH=$PATH:$HOME/dotfiles/bin`` or creat
 ## Dependencies
 **i3**: 
 * bumblebee-status [(github)](https://github.com/tobi-wan-kenobi/bumblebee-status)  
+
 **zsh**: 
 * Fzf (any package manager)
