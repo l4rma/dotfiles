@@ -45,3 +45,4 @@ yabai -m rule --add app="^Appgate SDP$" manage=off
 yabai -m rule --add app="^IntelliJ IDEA$" manage=off
 yabai -m rule --add app=Emacs manage=on
 yabai -m rule --add app="^Wally$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
