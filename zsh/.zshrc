@@ -84,7 +84,7 @@ export BROWSER=firefox
 export EDITOR=nvim
 
 # Open man pages in vim
-export MANPAGER='nvim +Man!'
+#export MANPAGER='nvim +Man!'
 
 # Change caps to esc
 #setxkbmap -option caps:escape
@@ -107,3 +107,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 #neofetch --disable GPU
+
+LC_CTYPE=en_US.UTF-8
+LC_ALL=en_US.UTF-8
