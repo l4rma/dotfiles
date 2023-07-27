@@ -40,6 +40,7 @@ alias cw='change-wallpaper.sh' # Script to change to a random wallpaper on scree
 alias sz='so $HOME/.zshrc' # Source zshrc file
 alias py='python3'
 alias pip='pip3'
+alias fig='figlet -f ANSI\ Shadow -w 800'
 
 # GIT 
 # git repo with dotfiles scattered all over. No longer in use..
@@ -57,3 +58,6 @@ alias yt='{read -r arg; ff "https://www.youtube.com/results?search_query=${arg}"
 alias fixExtScr='xrandr --output DP-2 --mode 3440x1440 --left-of eDP-1 --auto'
 alias b1='brightnessctl set 1%; clear;'
 alias b2='brightnessctl set 55%; clear;'
+
+# Linux specific
+alias bt='echo BATTERY INFO:;upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "state|time\ to\ empty|percentage" 2>/dev/null'

@@ -71,11 +71,11 @@ bindkey -s '^H' 'cd;clear^M'
 PATH="$PATH:$HOME/bin"								# homemade scripts
 #PATH="$PATH:$HOME/.local/bin"						# homemade scripts
 PATH="$PATH:$HOME/.cargo/bin"						# Rust
-PATH="/opt/homebrew/bin/:$PATH"						# Homebrew
+#PATH="/opt/homebrew/bin/:$PATH"						# Homebrew
 export PATH
 
 # Add man pages for all the homebrew installed apps
-export MANPATH="/opt/homebrew/share/man:$MANPATH"
+#export MANPATH="/opt/homebrew/share/man:$MANPATH"
 
 # Set default browser
 export BROWSER=firefox
@@ -84,10 +84,10 @@ export BROWSER=firefox
 export EDITOR=nvim
 
 # Open man pages in vim
-export MANPAGER='nvim +Man!'
+#export MANPAGER='nvim +Man!'
 
 # Change caps to esc
-#setxkbmap -option caps:escape
+setxkbmap -option caps:escape
 
 # Source files 
 #[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
