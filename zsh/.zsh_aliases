@@ -40,6 +40,7 @@ alias cw='change-wallpaper.sh' # Script to change to a random wallpaper on scree
 alias sz='so $HOME/.zshrc' # Source zshrc file
 alias py='python3'
 alias pip='pip3'
+alias mvnfast='mvn clean install -DskipTests -Ddependency-check.skip'
 
 # GIT 
 # git repo with dotfiles scattered all over. No longer in use..
