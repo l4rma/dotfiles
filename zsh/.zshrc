@@ -66,28 +66,60 @@ bindkey '^e' edit-command-line
 #bindkey '^K' end-of-line 
 bindkey -s '^H' 'cd;clear^M'
 
-# Including PATHs
-#PATH="$PATH:$(go env GOPATH)/bin"					# Golang
-PATH="$PATH:$HOME/bin"								# homemade scripts
-#PATH="$PATH:$HOME/.local/bin"						# homemade scripts
-PATH="$PATH:$HOME/.cargo/bin"						# Rust
-#PATH="/opt/homebrew/bin/:$PATH"						# Homebrew
-export PATH
-
-# Add man pages for all the homebrew installed apps
-#export MANPATH="/opt/homebrew/share/man:$MANPATH"
-
 # Set default browser
 export BROWSER=firefox
 
 # Set default editor
 export EDITOR=nvim
 
+# Set OpenAI api key
+export OPENAI_API_KEY='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'
+
 # Open man pages in vim
 #export MANPAGER='nvim +Man!'
 
-# Change caps to esc
-setxkbmap -option caps:escape
+# Check OS
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    CYGWIN*)    machine=Cygwin;;
+    MINGW*)     machine=MinGw;;
+    MSYS_NT*)   machine=Git;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+
+if [[ $machine == "Mac" ]]; then
+  # MacOs spesific config
+  echo Loading Mac zsh config
+
+  PATH="/opt/homebrew/bin/:$PATH"						# Homebrew
+
+  # Add man pages for all the homebrew installed apps
+  export MANPATH="/opt/homebrew/share/man:$MANPATH"
+
+  [ -f ~/.config/zsh/.zsh_mac_aliases ] && source ~/.config/zsh/.zsh_mac_aliases
+
+  LC_CTYPE=en_US.UTF-8
+  LC_ALL=en_US.UTF-8
+elif [[ $machine == "Linux" ]]; then
+  # Linux spesific config
+  echo LINUX
+
+  # Change caps to esc
+  setxkbmap -option caps:escape
+
+  neofetch --disable GPU
+else
+  echo "Couldn't detect OS. No OS specific zsh config code has been run."
+fi
+
+# Including PATHs
+#PATH="$PATH:$(go env GOPATH)/bin"					# Golang
+PATH="$PATH:$HOME/bin"								# homemade scripts
+#PATH="$PATH:$HOME/.local/bin"						# homemade scripts
+PATH="$PATH:$HOME/.cargo/bin"						# Rust
+export PATH
 
 # Source files 
 #[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

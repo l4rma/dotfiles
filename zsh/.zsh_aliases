@@ -26,8 +26,10 @@ alias zconf='vi ~/.config/zsh/.zshrc'
 alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 alias otm='org-to-md'
 alias tw='attach-tmux-session'
+alias nvimit='tee | nvim'
 
 alias fish='asciiquarium'
+alias hack='docker run --rm -it bcbcarl/hollywood'
 alias oo='xdg-open'
 alias vi='nvim'
 alias z='zathura' # pdf viewer
@@ -40,7 +42,8 @@ alias cw='change-wallpaper.sh' # Script to change to a random wallpaper on scree
 alias sz='so $HOME/.zshrc' # Source zshrc file
 alias py='python3'
 alias pip='pip3'
-alias fig='figlet -f ANSI\ Shadow -w 800'
+alias mvnfast='mvn clean install -DskipTests -Ddependency-check.skip'
+alias fig='figlet -w 800 -f ansi\ shadow'
 
 # GIT 
 # git repo with dotfiles scattered all over. No longer in use..
