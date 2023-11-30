@@ -99,6 +99,7 @@ if [[ $machine == "Mac" ]]; then
   export MANPATH="/opt/homebrew/share/man:$MANPATH"
 
   [ -f ~/.config/zsh/.zsh_mac_aliases ] && source ~/.config/zsh/.zsh_mac_aliases
+  [ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
 
   LC_CTYPE=en_US.UTF-8
   LC_ALL=en_US.UTF-8
@@ -109,7 +110,10 @@ elif [[ $machine == "Linux" ]]; then
   # Change caps to esc
   setxkbmap -option caps:escape
 
-  neofetch --disable GPU
+  [ -f ~/.config/fzf/key-bindings.zsh ] && source ~/.config/fzf/key-bindings.zsh
+  # [ -f ~/.config/fzf/completion.zsh ] && source ~/.config/fzf/completion.zsh
+
+  #neofetch --disable GPU
 else
   echo "Couldn't detect OS. No OS specific zsh config code has been run."
 fi
@@ -125,7 +129,6 @@ export PATH
 #[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 #[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
 #[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
-[ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
 [ -f ~/.config/zsh/.zsh_git ] && source ~/.config/zsh/.zsh_git
 [ -f ~/.config/zsh/codeartifact-token ] && source ~/.config/zsh/codeartifact-token
 [ -f ~/.config/zsh/.zsh_aliases ] && source ~/.config/zsh/.zsh_aliases
@@ -137,8 +140,3 @@ export JAVA_HOME=$HOME/Library/Java/JavaVirtualMachines/corretto-11.0.17/
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-#neofetch --disable GPU
-
-LC_CTYPE=en_US.UTF-8
-LC_ALL=en_US.UTF-8

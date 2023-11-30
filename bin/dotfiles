@@ -28,6 +28,8 @@ my %dotfiles_hash = (
 	picom => "picom/picom.conf",
 	i3 => "i3/config",
 	test => "test-dir/test.conf",
+	fzf_completion => "fzf/completion.zsh",
+	fzf_key_bindings => "fzf/key-bindings.zsh",
 );
 
 # List symlinks
