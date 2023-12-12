@@ -72,9 +72,6 @@ export BROWSER=firefox
 # Set default editor
 export EDITOR=nvim
 
-# Set OpenAI api key
-export OPENAI_API_KEY='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'
-
 # Open man pages in vim
 #export MANPAGER='nvim +Man!'
 
