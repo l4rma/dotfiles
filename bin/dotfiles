@@ -25,6 +25,7 @@ my %dotfiles_hash = (
 	skhd => "skhd/skhdrc",
 	yabai => "yabai/yabairc",
 	alacritty => "alacritty/alacritty.yml",
+	alacritty_toml => "alacritty/alacritty.toml",
 	picom => "picom/picom.conf",
 	i3 => "i3/config",
 	test => "test-dir/test.conf",
