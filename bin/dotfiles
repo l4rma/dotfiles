@@ -1,4 +1,13 @@
 #!/usr/bin/perl
+# 
+# author: Lars Magelssen
+# last update: 20.12.23
+# description: A perl script placing symlinks of dotfiles in their respective .config/ directories.
+# 
+# How to add new config file:
+# Add name and path to the map (dotfiles_hash). 
+# ex. myApp => "myApp/myAppConfigFile"
+# This will create a symlink from dotfiles/myApp/myAppConfigFile to $HOME/.config/myApp/myAppConfigFile
 
 use strict;
 use warnings;
@@ -27,6 +36,7 @@ my %dotfiles_hash = (
 	alacritty => "alacritty/alacritty.yml",
 	picom => "picom/picom.conf",
 	i3 => "i3/config",
+	iterm2 => "iterm2/com.googlecode.iterm2.plist",
 	test => "test-dir/test.conf",
 );
 

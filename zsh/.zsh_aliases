@@ -1,7 +1,7 @@
 # Aliases
 alias ls='exa'
-alias ll='exa -l'
-alias la='exa -la'
+alias ll='exa -l --sort oldest'
+alias la='exa -la --sort oldest'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'

@@ -72,9 +72,6 @@ export BROWSER=firefox
 # Set default editor
 export EDITOR=nvim
 
-# Set OpenAI api key
-export OPENAI_API_KEY='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'
-
 # Open man pages in vim
 #export MANPAGER='nvim +Man!'
 
@@ -94,11 +91,13 @@ if [[ $machine == "Mac" ]]; then
   echo Loading Mac zsh config
 
   PATH="/opt/homebrew/bin/:$PATH"						# Homebrew
+  PATH="${PATH}:$HOME/Library/Python/3.11/bin"			# Pip bins
 
   # Add man pages for all the homebrew installed apps
   export MANPATH="/opt/homebrew/share/man:$MANPATH"
 
   [ -f ~/.config/zsh/.zsh_mac_aliases ] && source ~/.config/zsh/.zsh_mac_aliases
+[ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
 
   LC_CTYPE=en_US.UTF-8
   LC_ALL=en_US.UTF-8
@@ -125,7 +124,6 @@ export PATH
 #[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 #[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
 #[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
-[ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
 [ -f ~/.config/zsh/.zsh_git ] && source ~/.config/zsh/.zsh_git
 [ -f ~/.config/zsh/codeartifact-token ] && source ~/.config/zsh/codeartifact-token
 [ -f ~/.config/zsh/.zsh_aliases ] && source ~/.config/zsh/.zsh_aliases
@@ -137,8 +135,3 @@ export JAVA_HOME=$HOME/Library/Java/JavaVirtualMachines/corretto-11.0.17/
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-#neofetch --disable GPU
-
-LC_CTYPE=en_US.UTF-8
-LC_ALL=en_US.UTF-8
