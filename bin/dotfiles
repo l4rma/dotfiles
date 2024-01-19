@@ -34,10 +34,13 @@ my %dotfiles_hash = (
 	skhd => "skhd/skhdrc",
 	yabai => "yabai/yabairc",
 	alacritty => "alacritty/alacritty.yml",
+	alacritty_toml => "alacritty/alacritty.toml",
 	picom => "picom/picom.conf",
 	i3 => "i3/config",
 	iterm2 => "iterm2/com.googlecode.iterm2.plist",
 	test => "test-dir/test.conf",
+	fzf_completion => "fzf/completion.zsh",
+	fzf_key_bindings => "fzf/key-bindings.zsh",
 );
 
 # List symlinks

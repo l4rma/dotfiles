@@ -38,7 +38,7 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: Iosevka Nerd Font Mono
+    family: Iosevka Nerd Font
     style: Regular
   #bold:
     #family: monospace
