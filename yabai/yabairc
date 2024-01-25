@@ -47,3 +47,4 @@ yabai -m rule --add app=Emacs manage=on
 yabai -m rule --add app="^Wally$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
 yabai -m rule --add app="^IINA$" manage=off
+yabai -m rule --add app="^Jagex Launcher$" manage=off
