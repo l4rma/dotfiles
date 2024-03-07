@@ -35,7 +35,10 @@ In .zshrc or .bashrc (or other) add: ``$PATH=$PATH:$HOME/dotfiles/bin`` or creat
 
 ## Dependencies
 **i3**: 
-* bumblebee-status [(github)](https://github.com/tobi-wan-kenobi/bumblebee-status)  
+* ~~bumblebee-status [(github)](https://github.com/tobi-wan-kenobi/bumblebee-status)~~
+
+**tmux**: 
+* TPM [(github)](https://github.com/tmux-plugins/tpm)
 
 **zsh**: 
 * Fzf (any package manager)
