@@ -138,3 +138,5 @@ export JAVA_HOME=$HOME/Library/Java/JavaVirtualMachines/corretto-11.0.17/
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+[ -f "/Users/larma/.ghcup/env" ] && source "/Users/larma/.ghcup/env" # ghcup-env

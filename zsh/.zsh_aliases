@@ -1,6 +1,6 @@
 # Aliases
 alias ls='exa'
-alias ll='exa -l --sort oldest'
+alias ll='exa -l'
 alias la='exa -la --sort oldest'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -32,7 +32,7 @@ alias fish='asciiquarium'
 alias hack='docker run --rm -it bcbcarl/hollywood'
 alias oo='xdg-open'
 alias vi='nvim'
-alias z='zathura' # pdf viewer
+#alias z='zathura' # pdf viewer
 #alias ff='firefox' # Linux
 alias ff='open -a /Applications/Firefox.app' # MacOs
 alias pp='~/.config/polybar/launch.sh' # Kill and run polybar
