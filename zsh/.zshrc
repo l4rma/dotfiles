@@ -105,7 +105,8 @@ elif [[ $machine == "Linux" ]]; then
   echo LINUX
 
   # Change caps to esc
-  setxkbmap -option caps:escape
+  setxkbmap -option caps:escape # Use on X
+  #gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']" # Use on wayland if gnome dm
 
   [ -f ~/.config/fzf/key-bindings.zsh ] && source ~/.config/fzf/key-bindings.zsh
   # [ -f ~/.config/fzf/completion.zsh ] && source ~/.config/fzf/completion.zsh
@@ -118,6 +119,7 @@ fi
 # Including PATHs
 #PATH="$PATH:$(go env GOPATH)/bin"					# Golang
 PATH="$PATH:$HOME/bin"								# homemade scripts
+PATH="$PATH:$HOME/dotfiles/bin"						# dotfiles script
 #PATH="$PATH:$HOME/.local/bin"						# homemade scripts
 PATH="$PATH:$HOME/.cargo/bin"						# Rust
 export PATH
