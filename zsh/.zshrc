@@ -117,6 +117,7 @@ else
 fi
 
 # Including PATHs
+PATH=$PATH:/usr/local/go/bin
 #PATH="$PATH:$(go env GOPATH)/bin"					# Golang
 PATH="$PATH:$HOME/bin"								# homemade scripts
 PATH="$PATH:$HOME/dotfiles/bin"						# dotfiles script
