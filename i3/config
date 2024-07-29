@@ -1,15 +1,21 @@
+# 
+#                                                                
+#    "     mmmm                                m""    "          
+#  mmm    "   "#         mmm    mmm   m mm   mm#mm  mmm     mmmm 
+#    #      mmm"        #"  "  #" "#  #"  #    #      #    #" "# 
+#    #        "#        #      #   #  #   #    #      #    #   # 
+#  mm#mm  "mmm#"        "#mm"  "#m#"  #   #    #    mm#mm  "#m"# 
+#                                                           m  # 
+#                                                            ""  
+
+# Set mod key to super (not alt)
 set $mod Mod4
 
+# Font and font size
 font pango:monospace 8
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i ~/Pictures/wallpapers/blured2_1920x1080.png -c 000000
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
+#set $refresh_i3status killall -SIGUSR1 i3status
 #bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 #bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 #bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
@@ -34,7 +40,7 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 
 # start a browser
-bindsym $mod+i exec firefox
+bindsym $mod+i exec brave-browser-stable
 
 # capture screenshot
 bindsym $mod+p exec flameshot gui
@@ -43,7 +49,6 @@ bindsym $mod+p exec flameshot gui
 #bindsym $mod+Escape exec i3lock -i ~/Pictures/wallpapers/blured2_1920x1080.png -c 000000
 bindsym $mod+Escape exec i3lock -c 000000
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c black --nofork
-
 
 # kill focused window
 bindsym $mod+q kill
@@ -57,8 +62,7 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-# start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
+# Rofi (program launcher)
 bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -theme gruvbox-dark
 bindsym $mod+e exec rofi -show emoji -modi emoji -theme gruvbox-dark
 bindsym $mod+s exec rofi -show ssh -theme gruvbox-dark
@@ -160,7 +164,6 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-
 # Removes window title bars
 default_border pixel 1
 default_floating_border pixel 1
@@ -191,31 +194,11 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-#bar {
-#  position top
-#  colors {
-#    background #000000
-#    statusline #FFFFFF
-#    separator  #666666
-#
-#    focused_workspace  #83CAFA #51A2DA #FFFFFF
-#    active_workspace   #3C6EB4 #294172 #FFFFFF
-#    inactive_workspace #8C8C8C #4C4C4C #888888
-#    urgent_workspace   #EC69A0 #DB3279 #FFFFFF
-#    binding_mode       #b691d3 #A07CBC #FFFFFF
-#  }
-#  status_command i3status
-#}
 
-#bar {
-#        position top
-#        font pango:JetBrains Mono 12
-#        status_command ~/.config/bumblebee-status-main/bumblebee-status \
-#                -m spacer xrandr load sensors2 memory bluetooth2 brightness pasink date time battery \
-#                -p spacer.text=" Hello world!" memory.format="{used}/{total}" time.format="%H:%M" date.format="%a, %d.%m.%Y" sensors2.showcpu=false sensors2.chip_field_include="coretemp-isa-0000.temp1"\
-#                -t iceberg-rainbow
-#}
-
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id picom
-exec_always --no-startup-id polybar-launcher
+# Programs to execute
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i ~/Pictures/wallpapers/blured2_1920x1080.png -c 000000
+exec --no-startup-id nm-applet					# NetworkManager Tray GUI
+exec --no-startup-id fixExtScr					# fix display settings
+exec --no-startup-id nitrogen --restore			# set background
+exec --no-startup-id picom						# run Picom
+exec_always --no-startup-id polybar-launcher	# Polybar run script
