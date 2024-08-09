@@ -102,7 +102,7 @@ if [[ $machine == "Mac" ]]; then
   LC_ALL=en_US.UTF-8
 elif [[ $machine == "Linux" ]]; then
   # Linux spesific config
-  echo LINUX
+# echo LINUX
 
   # Change caps to esc
   setxkbmap -option caps:escape # Use on X
