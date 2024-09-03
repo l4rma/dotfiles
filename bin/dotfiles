@@ -50,7 +50,10 @@ if ($flag eq '--version' || $flag eq '-v') {
 	exit 0;
 } elsif ($flag eq '--help' || $flag eq '-h') {
 	printUsage();
-	exit 0;
+	exit 0
+} elsif ($flag eq '--status' || $flag eq '-gst') {
+	system("git -C ~/dotfiles status");
+	exit 0
 } elsif ($flag eq '--list' || $flag eq '-l') {
 	# -l, --list
 	if (@ARGV > 0) {
