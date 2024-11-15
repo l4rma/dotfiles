@@ -26,7 +26,7 @@ alias cpv='rsync -ah --info=progress2'
 alias zconf='vi ~/.config/zsh/.zshrc'
 alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 alias otm='org-to-md'
-alias tw='attach-tmux-session'
+alias tw='tmux-create-work-session'
 alias nvimit='tee | nvim'
 alias pom='clear; pomodoro'
 

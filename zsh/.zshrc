@@ -67,7 +67,7 @@ bindkey '^e' edit-command-line
 bindkey -s '^H' 'cd;clear^M'
 
 # Set default browser
-export BROWSER=firefox
+export BROWSER=brave-browser
 
 # Set default editor
 export EDITOR=nvim
@@ -120,9 +120,9 @@ fi
 # Including PATHs
 PATH=$PATH:/usr/local/go/bin
 #PATH="$PATH:$(go env GOPATH)/bin"					# Golang
-PATH="$PATH:$HOME/bin"								# homemade scripts
-PATH="$PATH:$HOME/dotfiles/bin"						# dotfiles script
-#PATH="$PATH:$HOME/.local/bin"						# homemade scripts
+PATH="$PATH:$HOME/bin"								# Homemade scripts
+PATH="$PATH:$HOME/dotfiles/bin"						# Dotfiles script
+PATH="$PATH:$HOME/.local/bin"						# Local bins
 PATH="$PATH:$HOME/.cargo/bin"						# Rust
 export PATH
 

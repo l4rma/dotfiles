@@ -63,6 +63,9 @@ bindsym $mod+i exec brave-browser-stable
 # capture screenshot
 bindsym $mod+p exec flameshot gui
 
+# Pick a color with Gpick
+bindsym --no-startup-id $mod+c exec gpick --pick
+
 # lock screen
 bindsym $mod+Escape exec lock-screen
 #bindsym $mod+Escape exec i3lock -c 000000
@@ -132,7 +135,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+t layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+Return floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -206,6 +209,7 @@ for_window [class="Arandr" instance="arandr"] floating enable
 for_window [class="Galculator" instance="galculator"] floating enable
 for_window [class="gnome-calculator" instance="gnome-calculator"] floating enable
 for_window [class="qView" instance="qview"] floating enable
+for_window [class="Gpick" instance="gpick"] floating enable
 
 # Removes window title bars
 default_border pixel 1
