@@ -1,3 +1,8 @@
+# Settings
+max-items 100 # limit articles to 100
+history-limit 100 # limit history to 100
+
+# Keybinds
 bind-key j down
 bind-key k up
 bind-key j next articlelist

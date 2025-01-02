@@ -18,6 +18,7 @@ alias p1="PROMPT='%B%{$fg[red]%}[%F{214}%n%F{003}@%F{214}%M %{$fg[green]%}%1~%{$
 alias p2="PROMPT='%{$fg[green]%}%B[%1~]${vcs_info_msg_0_}>%{$reset_color%} '"
 alias p3="PROMPT='%{$fg[green]%}${vcs_info_msg_0_}>%{$reset_color%} '"
 alias i3conf='vi ~/.config/i3/config'
+alias pl='polybar-launcher'
 #alias cal="ncal -M -b"
 alias cal='gcal --starting-day=1'
 alias q='qview'
