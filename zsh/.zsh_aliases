@@ -1,4 +1,5 @@
 # Aliases
+alias go=/usr/local/go/bin/go
 alias ls='exa'
 alias ll='exa -l'
 alias la='exa -la --sort oldest'
@@ -30,6 +31,7 @@ alias otm='org-to-md'
 alias tw='tmux-create-work-session'
 alias nvimit='tee | nvim'
 alias pom='clear; pomodoro'
+alias fix-monitor-sopra='xrandr --output DisplayPort-1 --primary --mode 3840x1600 --right-of eDP --auto'
 
 alias fish='asciiquarium'
 alias hack='docker run --rm -it bcbcarl/hollywood'
