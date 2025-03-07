@@ -1,12 +1,11 @@
-# 
-#                                                                
-#    "     mmmm                                m""    "          
-#  mmm    "   "#         mmm    mmm   m mm   mm#mm  mmm     mmmm 
-#    #      mmm"        #"  "  #" "#  #"  #    #      #    #" "# 
-#    #        "#        #      #   #  #   #    #      #    #   # 
-#  mm#mm  "mmm#"        "#mm"  "#m#"  #   #    #    mm#mm  "#m"# 
-#                                                           m  # 
-#                                                            ""  
+#
+#    "     mmmm                                m""    "
+#  mmm    "   "#         mmm    mmm   m mm   mm#mm  mmm     mmmm
+#    #      mmm"        #"  "  #" "#  #"  #    #      #    #" "#
+#    #        "#        #      #   #  #   #    #      #    #   #
+#  mm#mm  "mmm#"        "#mm"  "#m#"  #   #    #    mm#mm  "#m"#
+#                                                           m  #
+#                                                            ""
 
 # Set mod key to super (not alt)
 set $mod Mod4
@@ -48,8 +47,25 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
-gaps inner 16
-gaps outer 8
+# Gaps Settings
+smart_gaps off
+
+# Default gaps
+set $default_gaps_inner 16
+set $default_gaps_outer 8
+
+# Set default gaps
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
+
+# Gaps key bindings
+bindsym Mod4+ctrl+plus gaps inner current plus 5 ; gaps outer current plus 5
+bindsym Mod4+ctrl+minus gaps inner current minus 5 ; gaps outer current minus 5
+bindsym Mod4+ctrl+0 gaps inner current set 0 ; gaps outer current set 0
+bindsym Mod4+ctrl+1 gaps inner current set $default_gaps_inner ; gaps outer current set $default_gaps_outer
+
+
+bindsym Mod4+Mod1+Shift+plus gaps outer current plus 5 ; gaps inner current plus 5
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -212,7 +228,7 @@ for_window [class="qView" instance="qview"] floating enable
 for_window [class="Gpick" instance="gpick"] floating enable
 
 # Removes window title bars
-default_border pixel 1
+default_border pixel 2
 default_floating_border pixel 1
 
 # resize window (you can also use the mouse for that)
@@ -244,4 +260,4 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id picom						# run Picom
 exec --no-startup-id nitrogen --restore			# set background
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c black --nofork
-exec_always --no-startup-id ~/bin/polybar-launcher			# Polybar run script
+#exec_always --no-startup-id ~/bin/polybar-launcher			# Polybar run script
