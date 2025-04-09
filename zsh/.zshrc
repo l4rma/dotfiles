@@ -124,6 +124,7 @@ PATH="$PATH:$HOME/bin"								# Homemade scripts
 PATH="$PATH:$HOME/dotfiles/bin"						# Dotfiles script
 PATH="$PATH:$HOME/.local/bin"						# Local bins
 PATH="$PATH:$HOME/.cargo/bin"						# Rust
+PATH="$PATH:/opt/elixir-1.18.3/bin"                 # Elixir
 export PATH
 
 # Source files 
@@ -143,4 +144,5 @@ export JAVA_HOME=$HOME/Library/Java/JavaVirtualMachines/corretto-11.0.17/
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-[ -f "/Users/larma/.ghcup/env" ] && source "/Users/larma/.ghcup/env" # ghcup-env
+
+[ -f "/home/larma/.ghcup/env" ] && . "/home/larma/.ghcup/env" # ghcup-env
