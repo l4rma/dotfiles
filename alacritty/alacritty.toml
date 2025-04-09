@@ -68,7 +68,7 @@ save_to_clipboard = true
 
 [window]
 decorations = "full"
-opacity = 0.6
+opacity = 1.0
 
 [window.padding]
 x = 0
