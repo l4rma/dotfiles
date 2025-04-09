@@ -53,10 +53,11 @@ smart_gaps off
 # Default gaps
 set $default_gaps_inner 16
 set $default_gaps_outer 8
+set $no_gaps 0
 
 # Set default gaps
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
+gaps inner $no_gaps
+gaps outer $no_gaps
 
 # Gaps key bindings
 bindsym Mod4+ctrl+plus gaps inner current plus 5 ; gaps outer current plus 5
@@ -205,6 +206,8 @@ assign [class="Spotify"] $ws1
 assign [class="Brave-browser"] $ws2
 assign [class="teams-for-linux"] $ws3
 assign [class="discord"] $ws3
+assign [class="Slack"] $ws3
+assign [class="Gimp-2.10"] $ws4
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -260,4 +263,7 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id picom						# run Picom
 exec --no-startup-id nitrogen --restore			# set background
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c black --nofork
-#exec_always --no-startup-id ~/bin/polybar-launcher			# Polybar run script
+exec_always --no-startup-id ~/bin/polybar-launcher			# Polybar run script
+exec --no-startup-id xset s off                 # disable screen saver
+exec --no-startup-id xset s off -dpms           # disable DPMS (Energy Star) features
+
