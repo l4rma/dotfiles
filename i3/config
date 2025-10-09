@@ -204,9 +204,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 ## Assign programs to workspaces:
 assign [class="Spotify"] $ws1
 assign [class="Brave-browser"] $ws2
-assign [class="teams-for-linux"] $ws3
-assign [class="discord"] $ws3
-assign [class="Slack"] $ws3
+assign [class="teams-for-linux"] $ws5
+assign [class="discord"] $ws5
+assign [class="Slack"] $ws5
 assign [class="Gimp-2.10"] $ws4
 
 # reload the configuration file
