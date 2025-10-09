@@ -88,12 +88,17 @@ esac
 
 if [[ $machine == "Mac" ]]; then
   # MacOs spesific config
-  echo Loading Mac zsh config
+  # echo Loading Mac zsh config
 
-  PATH="/opt/homebrew/bin/:$PATH"						# Homebrew
+  PATH="/opt/homebrew/bin/:$PATH"						        # Homebrew
+  PATH="/Users/lars.magelssen/Library/Python/3.9/bin:$PATH"		# Python
+  
+
 
   # Add man pages for all the homebrew installed apps
   export MANPATH="/opt/homebrew/share/man:$MANPATH"
+
+  command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init zsh)" || { echo >&2 "Zoxide is not installed."}
 
   [ -f ~/.config/zsh/.zsh_mac_aliases ] && source ~/.config/zsh/.zsh_mac_aliases
   [ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh

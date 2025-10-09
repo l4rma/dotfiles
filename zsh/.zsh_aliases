@@ -1,8 +1,8 @@
 # Aliases
 alias go=/usr/local/go/bin/go
-alias ls='exa'
-alias ll='exa -l'
-alias la='exa -la --sort oldest'
+alias ls='eza'
+alias ll='eza -1'
+alias la='eza -la --sort oldest'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -22,7 +22,8 @@ alias i3conf='vi ~/.config/i3/config'
 alias pl='polybar-launcher'
 #alias cal="ncal -M -b"
 alias cal='gcal --starting-day=1'
-alias q='qview'
+#alias q='qview'
+alias q='/opt/homebrew/Caskroom/amazon-q/1.15.0/"Amazon Q.app"/Contents/MacOS/q'
 alias clock='tty-clock -f "%d-%M-%Y" -sc -C 3'
 alias cpv='rsync -ah --info=progress2'
 alias zconf='vi ~/.config/zsh/.zshrc'
@@ -33,6 +34,7 @@ alias nvimit='tee | nvim'
 alias pom='clear; pomodoro'
 alias fix-monitor-sopra='xrandr --output DisplayPort-1 --primary --mode 3840x1600 --right-of eDP --auto'
 
+alias kl='while true; do clear; fig $(date +%T); sleep 1; done'
 alias fish='asciiquarium'
 alias hack='docker run --rm -it bcbcarl/hollywood'
 alias oo='xdg-open'
@@ -69,3 +71,8 @@ alias b2='brightnessctl set 55%; clear;'
 
 # Linux specific
 alias bt='echo BATTERY INFO:;upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "state|time\ to\ empty|percentage" 2>/dev/null'
+
+# Kubernetes
+alias k='kubectl'
+alias curlk8s='kubectl run -it --rm curl --image=curlimages/curl --restart=Never -- sh'
+alias ck='kubectl run -it --rm curl --image=curlimages/curl --restart=Never --'
