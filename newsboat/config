@@ -1,6 +1,7 @@
 # Settings
 max-items 100 # limit articles to 100
 history-limit 100 # limit history to 100
+browser "open '%u'"
 
 # Keybinds
 bind-key j down

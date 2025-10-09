@@ -1,10 +1,25 @@
 https://aws.amazon.com/about-aws/whats-new/recent/feed/ "~AWS News"
 https://aws.amazon.com/blogs/architecture/feed/ "~AWS Architecture blog"
+
 https://rss.kode24.no/ "~Kode24"
+https://news.itsfoss.com/latest/rss/ "~It's F.O.S.S."
+
 https://www.nrk.no/toppsaker.rss "~NRK Toppsaker" 
+https://www.nrk.no/nyheter/siste.rss "~NRK siste nyheter"
 https://www.nrk.no/innlandet/toppsaker.rss "~NRK Innlandet Toppsaker"
-https://feeds.bbci.co.uk/news/rss.xml "~BBC News"
-https://rss.nytimes.com/services/xml/rss/nyt/World.xml "~NYT News"
+https://www.vg.no/rss/feed "~VG"
+http://www.dagbladet.no/rss/ "~Dagbladet"
+https://www.aftenposten.no/rss/ "~Aftenposten"
+https://services.dn.no/api/feed/rss/ "~DN - Alle nyheter"
+http://e24.no/rss2/ "~E24"
+https://www.tv2.no/rss/underholdning "~TV2 Underholdning"
+
+https://feeds.bbci.co.uk/news/rss.xml "~BBC News Top stories"
+http://rss.cnn.com/rss/edition.rss "~CNN Top Stories"
+https://rss.nytimes.com/services/xml/rss/nyt/World.xml "~The New York Times"
+http://feeds.nbcnews.com/nbcnews/public/news "~NBC News"
+http://feeds.feedburner.com/time/world "~Time - World"
+
 https://hnrss.org/newest "~Hacker News"
 https://www.reddit.com/r/linux/.rss "~Reddit /r/linux"
 https://www.reddit.com/r/battlestations/.rss "~Reddit /r/battlestations"
